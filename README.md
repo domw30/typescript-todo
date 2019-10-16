@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### To Use
+
+Run 'npm install' to install dependencies
+Run 'npm start' to kickoff build and visit http://localhost:3000
+
 ### User Stories
 
 ```
@@ -25,3 +30,5 @@ As a busy person with a bad memory,
 So that I can finalise a task that I have completed and forget,
 I'd like to be able to delete a todo.
 ```
+
+(NB: There is currently no functionality for Todos to be permanently stored. If the user refreshes the web page, the Todos will be lost.)
