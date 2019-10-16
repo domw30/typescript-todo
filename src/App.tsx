@@ -4,6 +4,7 @@ type FormElem = React.FormEvent<HTMLFormElement>;
 
 function App(): JSX.Element {
   const [value, setValue] = useState<string>('');
+  const [todos, setTodos] = useState([]);
 
   const handleSubmit = (e: FormElem): void => {
     e.preventDefault(); // prevents the form from doing a refresh.
