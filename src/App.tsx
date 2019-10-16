@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 
 function App(): JSX.Element {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<string>('');
 
   return (
     <Fragment>
