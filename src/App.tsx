@@ -28,7 +28,7 @@ function App(): JSX.Element {
   };
 
   const removeTodo = (index: number): void => {
-    const newTodos: Todo[] = todos;
+    const newTodos: Todo[] = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
