@@ -1,9 +1,11 @@
 import React, { Fragment, useState } from 'react';
 
+type FormElem = React.FormEvent<HTMLFormElement>;
+
 function App(): JSX.Element {
   const [value, setValue] = useState<string>('');
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormElem): void => {
     e.preventDefault(); // prevents the form from doing a refresh.
     setValue(''); // Turns value in input to empty string.
   };
