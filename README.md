@@ -7,8 +7,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### To Use
 
-Run 'npm install' to install dependencies
-Run 'npm start' to kickoff build and visit http://localhost:3000
+Run 'npm install' to install dependencies.
+
+Run 'npm start' to kickoff build and visit http://localhost:3000.
 
 ### User Stories
 
