@@ -27,6 +27,12 @@ function App(): JSX.Element {
     // set object as our new todo array with the setTodos function.
   };
 
+  const removeTodo = (index: number): void => {
+    const newTodos: Todo[] = todos;
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
   console.log(todos);
 
   return (
