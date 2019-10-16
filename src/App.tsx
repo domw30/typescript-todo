@@ -33,8 +33,6 @@ function App(): JSX.Element {
     setTodos(newTodos);
   };
 
-  console.log(todos);
-
   return (
     <Fragment>
       <h1>Todo List</h1>
@@ -43,7 +41,7 @@ function App(): JSX.Element {
           type="text"
           value={value}
           onChange={e => setValue(e.target.value)}
-          required
+          required={true}
         />
         <button type="submit">Add Todo</button>
       </form>
@@ -55,10 +53,10 @@ function App(): JSX.Element {
             >
               {todo.text}
             </div>
-            <button type="button" onClick={() => completeTodo(index)}>
+            <button type="button" onClick={(): void => completeTodo(index)}>
               {todo.complete ? 'Incomplete' : 'Complete'}
             </button>
-            <button onClick={() => removeTodo(index)}>X</button>
+            <button onClick={(): void => removeTodo(index)}>X</button>
           </div>
         ))}
       </section>
