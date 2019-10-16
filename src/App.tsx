@@ -31,6 +31,11 @@ function App(): JSX.Element {
         />
         <button type="submit">Add Todo</button>
       </form>
+      <section>
+        {todos.map((todo: Todo, index: number) => (
+          <div>{todo.text}</div>
+        ))}
+      </section>
     </Fragment>
   );
 }
