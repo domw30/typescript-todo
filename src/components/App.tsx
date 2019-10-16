@@ -2,6 +2,9 @@ import React, { Fragment, useState } from 'react';
 import { Todo } from '../interfaces/Todo';
 import { FormElem } from '../types/FormElem';
 import { ChangeElem } from '../types/ChangeElem';
+import styled from 'styled-components';
+
+const Heading = styled.h1``;
 
 function App(): JSX.Element {
   const [value, setValue] = useState<string>('');
@@ -40,7 +43,7 @@ function App(): JSX.Element {
 
   return (
     <Fragment>
-      <h1>Todo List</h1>
+      <Heading>Todo List</Heading>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
