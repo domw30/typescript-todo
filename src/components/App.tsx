@@ -2,9 +2,13 @@ import React, { Fragment, useState } from 'react';
 import { Todo } from '../interfaces/Todo';
 import { FormElem } from '../types/FormElem';
 import { ChangeElem } from '../types/ChangeElem';
-import styled from 'styled-components';
-
-const Heading = styled.h1``;
+import {
+  Wrapper,
+  Heading,
+  BodyWrapper,
+  Button,
+  Section,
+} from '../styles/styles';
 
 function App(): JSX.Element {
   const [value, setValue] = useState<string>('');
@@ -43,31 +47,38 @@ function App(): JSX.Element {
 
   return (
     <Fragment>
-      <Heading>Todo List</Heading>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={value}
-          onChange={handleChange}
-          required={true}
-        />
-        <button type="submit">Add Todo</button>
-      </form>
-      <section>
-        {todos.map((todo: Todo, index: number) => (
-          <div key={index} style={{ display: 'flex' }}>
-            <div
-              style={{ textDecoration: todo.complete ? 'line-through' : '' }}
-            >
-              {todo.text}
-            </div>
-            <button type="button" onClick={(): void => completeTodo(index)}>
-              {todo.complete ? 'Incomplete' : 'Complete'}
-            </button>
-            <button onClick={(): void => removeTodo(index)}>X</button>
-          </div>
-        ))}
-      </section>
+      <Wrapper>
+        <Heading>Todo List</Heading>
+        <BodyWrapper>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Enter Todo"
+              value={value}
+              onChange={handleChange}
+              required={true}
+            />
+            <Button type="submit">Add Todo</Button>
+          </form>
+          <Section>
+            {todos.map((todo: Todo, index: number) => (
+              <div key={index} style={{ display: 'flex' }}>
+                <div
+                  style={{
+                    textDecoration: todo.complete ? 'line-through' : '',
+                  }}
+                >
+                  {todo.text}
+                </div>
+                <Button type="button" onClick={(): void => completeTodo(index)}>
+                  {todo.complete ? 'Incomplete' : 'Complete'}
+                </Button>
+                <Button onClick={(): void => removeTodo(index)}>X</Button>
+              </div>
+            ))}
+          </Section>
+        </BodyWrapper>
+      </Wrapper>
     </Fragment>
   );
 }
