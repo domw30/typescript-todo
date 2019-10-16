@@ -17,6 +17,7 @@ function App(): JSX.Element {
     const newTodos: Todo[] = [...todos, { text, complete: false }]; // spread operator brings in previous toods. new array for new todos
     setTodos(newTodos);
   };
+  console.log(todos);
 
   return (
     <Fragment>
