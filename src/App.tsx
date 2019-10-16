@@ -17,6 +17,16 @@ function App(): JSX.Element {
     const newTodos: Todo[] = [...todos, { text, complete: false }]; // spread operator brings in previous toods. new array for new todos
     setTodos(newTodos);
   };
+
+  // completeTodo takes an argument of index dos array called, newTodos
+  const completeTodo = (index: number): void => {
+    const newTodos: Todo[] = todos;
+    newTodos[index].complete = !newTodos[index].complete;
+    // toggle the complete property in the object of our todo by using index to locate it.
+    setTodos(newTodos);
+    // set object as our new todo array with the setTodos function.
+  };
+
   console.log(todos);
 
   return (
@@ -33,7 +43,7 @@ function App(): JSX.Element {
       </form>
       <section>
         {todos.map((todo: Todo, index: number) => (
-          <div>{todo.text}</div>
+          <div>{todo.text}</div> // The todo item from the array of Type, Todo, and an index of type number.
         ))}
       </section>
     </Fragment>
