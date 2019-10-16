@@ -20,7 +20,7 @@ function App(): JSX.Element {
 
   // completeTodo takes an argument of index dos array called, newTodos
   const completeTodo = (index: number): void => {
-    const newTodos: Todo[] = todos;
+    const newTodos: Todo[] = [...todos];
     newTodos[index].complete = !newTodos[index].complete;
     // toggle the complete property in the object of our todo by using index to locate it.
     setTodos(newTodos);
