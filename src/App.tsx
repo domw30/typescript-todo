@@ -44,8 +44,7 @@ function App(): JSX.Element {
       <section>
         {todos.map((todo: Todo, index: number) => (
           <div key={index}>
-            <div>{todo.text}</div> // The todo item from the array of Type,
-            Todo, and an index of type number.
+            <div>{todo.text}</div>
             <button type="button" onClick={() => completeTodo(index)}>
               {todo.complete ? 'Incomplete' : 'Complete'}
             </button>
