@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
-import { Todo } from './interfaces/Todo';
-import { FormElem } from './types/FormElem';
-import { ChangeElem } from './types/ChangeElem';
+import { Todo } from '../interfaces/Todo';
+import { FormElem } from '../types/FormElem';
+import { ChangeElem } from '../types/ChangeElem';
 
 function App(): JSX.Element {
   const [value, setValue] = useState<string>('');
