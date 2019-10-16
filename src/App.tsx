@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Todo } from './interfaces/Todo';
 
 type FormElem = React.FormEvent<HTMLFormElement>;
+type ChangeElem = React.ChangeEvent<HTMLInputElement>;
 
 function App(): JSX.Element {
   const [value, setValue] = useState<string>('');
@@ -11,6 +12,11 @@ function App(): JSX.Element {
     e.preventDefault(); // prevents the form from doing a refresh.
     addTodo(value);
     setValue(''); // Turns value in input to empty string.
+  };
+
+  const handleChange = (e: ChangeElem): void => {
+    e.preventDefault(); // prevents the form from doing a refresh.
+    setValue(e.currentTarget.value);
   };
 
   const addTodo = (text: string): void => {
@@ -40,7 +46,7 @@ function App(): JSX.Element {
         <input
           type="text"
           value={value}
-          onChange={e => setValue(e.target.value)}
+          onChange={handleChange}
           required={true}
         />
         <button type="submit">Add Todo</button>
