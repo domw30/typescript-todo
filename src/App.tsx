@@ -16,7 +16,7 @@ function App(): JSX.Element {
 
   const handleChange = (e: ChangeElem): void => {
     e.preventDefault(); // prevents the form from doing a refresh.
-    setValue(e.currentTarget.value);
+    setValue(e.target.value);
   };
 
   const addTodo = (text: string): void => {
