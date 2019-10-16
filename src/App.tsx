@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { Todo } from './interfaces/Todo';
 
 type FormElem = React.FormEvent<HTMLFormElement>;
 
