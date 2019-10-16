@@ -43,8 +43,12 @@ function App(): JSX.Element {
       </form>
       <section>
         {todos.map((todo: Todo, index: number) => (
-          <div key={index}>
-            <div>{todo.text}</div>
+          <div key={index} style={{ display: 'flex' }}>
+            <div
+              style={{ textDecoration: todo.complete ? 'line-through' : '' }}
+            >
+              {todo.text}
+            </div>
             <button type="button" onClick={() => completeTodo(index)}>
               {todo.complete ? 'Incomplete' : 'Complete'}
             </button>
