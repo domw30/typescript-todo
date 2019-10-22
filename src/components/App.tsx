@@ -12,12 +12,12 @@ import {
 import { GlobalStyles } from '../styles/global-styles';
 
 function App(): JSX.Element {
-  const [value, setValue] = useState<string>('');
+  const [inputValue, setValue] = useState<string>('');
   const [todos, setTodos] = useState<Todo[]>([]); // useState is expecting an array of interface Todos
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault(); // prevents the form from doing a refresh.
-    addTodo(value);
+    addTodo(inputValue);
     setValue(''); // Turns value in input to empty string.
   };
 
@@ -54,7 +54,7 @@ function App(): JSX.Element {
         <TodoInput
           type="text"
           placeholder="Enter Todo"
-          value={value}
+          value={inputValue}
           onChange={handleChange}
           required={true}
         />
@@ -62,7 +62,7 @@ function App(): JSX.Element {
       </TodoForm>
       <TodoList>
         {todos.map((todo: Todo, index: number) => (
-          <div key={index} style={{ display: 'flex' }}>
+          <div key={index}>
             <div
               style={{
                 textDecoration: todo.complete ? 'line-through' : '',
