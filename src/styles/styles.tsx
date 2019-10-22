@@ -1,11 +1,15 @@
 import styled from 'styled-components';
 
-export const Heading = styled.h1``;
+export const TodoHeading = styled.h1``;
 
-export const Wrapper = styled.body``;
+export const TodoForm = styled.form``;
 
-export const BodyWrapper = styled.div``;
+export const TodoInput = styled.input``;
 
-export const Button = styled.button``;
+export const CreateButton = styled.button``;
 
-export const Section = styled.section``;
+export const TodoList = styled.section``;
+
+export const ToggleButton = styled.button``;
+
+export const RemoveButton = styled.button``;

@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from 'react';
 import { Todo } from '../interfaces/Todo';
 import {
-  Wrapper,
-  Heading,
-  BodyWrapper,
-  Button,
-  Section,
+  TodoHeading,
+  TodoForm,
+  TodoInput,
+  CreateButton,
+  ToggleButton,
+  RemoveButton,
+  TodoList,
 } from '../styles/styles';
 import { GlobalStyles } from '../styles/global-styles';
 
@@ -47,38 +49,39 @@ function App(): JSX.Element {
   return (
     <Fragment>
       <GlobalStyles />
-      <Wrapper>
-        <Heading>Todo List</Heading>
-        <BodyWrapper>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Enter Todo"
-              value={value}
-              onChange={handleChange}
-              required={true}
-            />
-            <Button type="submit">Add Todo</Button>
-          </form>
-          <Section>
-            {todos.map((todo: Todo, index: number) => (
-              <div key={index} style={{ display: 'flex' }}>
-                <div
-                  style={{
-                    textDecoration: todo.complete ? 'line-through' : '',
-                  }}
-                >
-                  {todo.text}
-                </div>
-                <Button type="button" onClick={(): void => completeTodo(index)}>
-                  {todo.complete ? 'Incomplete' : 'Complete'}
-                </Button>
-                <Button onClick={(): void => removeTodo(index)}>X</Button>
-              </div>
-            ))}
-          </Section>
-        </BodyWrapper>
-      </Wrapper>
+      <TodoHeading>Todo List</TodoHeading>
+      <TodoForm onSubmit={handleSubmit}>
+        <TodoInput
+          type="text"
+          placeholder="Enter Todo"
+          value={value}
+          onChange={handleChange}
+          required={true}
+        />
+        <CreateButton type="submit">Add Todo</CreateButton>
+      </TodoForm>
+      <TodoList>
+        {todos.map((todo: Todo, index: number) => (
+          <div key={index} style={{ display: 'flex' }}>
+            <div
+              style={{
+                textDecoration: todo.complete ? 'line-through' : '',
+              }}
+            >
+              {todo.text}
+            </div>
+            <ToggleButton
+              type="button"
+              onClick={(): void => completeTodo(index)}
+            >
+              {todo.complete ? 'Incomplete' : 'Complete'}
+            </ToggleButton>
+            <RemoveButton onClick={(): void => removeTodo(index)}>
+              X
+            </RemoveButton>
+          </div>
+        ))}
+      </TodoList>
     </Fragment>
   );
 }
