@@ -7,6 +7,7 @@ import {
   Button,
   Section,
 } from '../styles/styles';
+import { GlobalStyles } from '../styles/global-styles';
 
 function App(): JSX.Element {
   const [value, setValue] = useState<string>('');
@@ -45,6 +46,7 @@ function App(): JSX.Element {
 
   return (
     <Fragment>
+      <GlobalStyles />
       <Wrapper>
         <Heading>Todo List</Heading>
         <BodyWrapper>
