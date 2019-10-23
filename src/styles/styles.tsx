@@ -1,8 +1,16 @@
 import styled from 'styled-components';
 
-export const TodoHeading = styled.h1``;
+export const TodoHeading = styled.h1`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-export const TodoForm = styled.form``;
+export const TodoForm = styled.form`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
 
 export const TodoInput = styled.input``;
 
