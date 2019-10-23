@@ -1,20 +1,14 @@
 import React, { Fragment, useState } from 'react';
 import { Todo } from '../interfaces/Todo';
+import { GlobalStyles } from '../styles/global-styles';
+import { DeleteIcon, Check, Uncheck } from '../styles/icons';
 import {
   TodoHeading,
   TodoForm,
   TodoInput,
   CreateButton,
-  ToggleButton,
   TodoList,
 } from '../styles/styles';
-import { GlobalStyles } from '../styles/global-styles';
-import { Delete } from 'styled-icons/feather/Delete';
-import styled from 'styled-components';
-
-const DeleteIcon = styled(Delete)`
-  color: black;
-`;
 
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
@@ -76,12 +70,18 @@ function App(): JSX.Element {
               >
                 {todo.text}
               </div>
-              <ToggleButton
-                type="button"
-                onClick={(): void => completeTodo(index)}
-              >
-                {todo.complete ? 'Incomplete' : 'Complete'}
-              </ToggleButton>
+              {todo.complete ? (
+                <Uncheck
+                  type="button"
+                  onClick={(): void => completeTodo(index)}
+                />
+              ) : (
+                <Check
+                  type="button"
+                  onClick={(): void => completeTodo(index)}
+                />
+              )}
+
               <DeleteIcon onClick={(): void => removeTodo(index)} />
             </div>
           ))
