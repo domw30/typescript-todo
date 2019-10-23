@@ -66,24 +66,26 @@ function App(): JSX.Element {
         <CreateButton type="submit">Add Todo</CreateButton>
       </TodoForm>
       <TodoList>
-        {todos.map((todo: Todo, index: number) => (
-          <div key={index}>
-            <div
-              style={{
-                textDecoration: todo.complete ? 'line-through' : '',
-              }}
-            >
-              {todo.text}
+        {todos
+          .map((todo: Todo, index: number) => (
+            <div key={index}>
+              <div
+                style={{
+                  textDecoration: todo.complete ? 'line-through' : '',
+                }}
+              >
+                {todo.text}
+              </div>
+              <ToggleButton
+                type="button"
+                onClick={(): void => completeTodo(index)}
+              >
+                {todo.complete ? 'Incomplete' : 'Complete'}
+              </ToggleButton>
+              <DeleteIcon onClick={(): void => removeTodo(index)} />
             </div>
-            <ToggleButton
-              type="button"
-              onClick={(): void => completeTodo(index)}
-            >
-              {todo.complete ? 'Incomplete' : 'Complete'}
-            </ToggleButton>
-            <DeleteIcon onClick={(): void => removeTodo(index)} />
-          </div>
-        ))}
+          ))
+          .reverse()}
       </TodoList>
     </Fragment>
   );
