@@ -6,10 +6,15 @@ import {
   TodoInput,
   CreateButton,
   ToggleButton,
-  RemoveButton,
   TodoList,
 } from '../styles/styles';
 import { GlobalStyles } from '../styles/global-styles';
+import { Delete } from 'styled-icons/feather/Delete';
+import styled from 'styled-components';
+
+const DeleteIcon = styled(Delete)`
+  color: black;
+`;
 
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
@@ -76,9 +81,7 @@ function App(): JSX.Element {
             >
               {todo.complete ? 'Incomplete' : 'Complete'}
             </ToggleButton>
-            <RemoveButton onClick={(): void => removeTodo(index)}>
-              X
-            </RemoveButton>
+            <DeleteIcon onClick={(): void => removeTodo(index)} />
           </div>
         ))}
       </TodoList>

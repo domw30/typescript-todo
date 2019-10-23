@@ -16,8 +16,12 @@ export const TodoInput = styled.input``;
 
 export const CreateButton = styled.button``;
 
-export const TodoList = styled.section``;
+export const TodoList = styled.section`
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 export const ToggleButton = styled.button``;
-
-export const RemoveButton = styled.button``;
