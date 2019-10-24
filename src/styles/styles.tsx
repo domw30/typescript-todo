@@ -21,7 +21,7 @@ export const TodoList = styled.section`
   justify-content: center;
 `;
 
-export const TodoItem = styled.div<TodoItemProps>`
+export const TodoListItem = styled.div<TodoItemProps>`
   ${props =>
     props.complete &&
     css`

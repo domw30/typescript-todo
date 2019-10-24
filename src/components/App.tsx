@@ -1,14 +1,14 @@
 import React, { Fragment, useState } from 'react';
 import { Todo } from '../interfaces/Todo';
 import { GlobalStyles } from '../styles/global-styles';
-import { DeleteIcon, Check, Uncheck } from '../styles/icons';
+import { DeleteIcon, CheckIcon } from '../styles/icons';
 import {
   TodoHeading,
   TodoForm,
   TodoInput,
   CreateButton,
   TodoList,
-  TodoItem,
+  TodoListItem,
 } from '../styles/styles';
 
 function App(): JSX.Element {
@@ -64,20 +64,15 @@ function App(): JSX.Element {
         {todos
           .map((todo: Todo, index: number) => (
             <div key={index}>
-              <TodoItem complete={todo.complete}>{todo.text}</TodoItem>
-              {todo.complete ? (
-                <Uncheck
-                  type="button"
-                  onClick={(): void => completeTodo(index)}
-                />
-              ) : (
-                <Check
-                  type="button"
-                  onClick={(): void => completeTodo(index)}
-                />
-              )}
-
-              <DeleteIcon onClick={(): void => removeTodo(index)} />
+              <TodoListItem complete={todo.complete}>{todo.text}</TodoListItem>
+              <CheckIcon
+                type="button"
+                onClick={(): void => completeTodo(index)}
+              />
+              <DeleteIcon
+                type="button"
+                onClick={(): void => removeTodo(index)}
+              />
             </div>
           ))
           .reverse()}
