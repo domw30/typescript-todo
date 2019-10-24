@@ -79,6 +79,7 @@ export const TodoListItem = styled.div<TodoItemProps>`
     props.complete &&
     css`
       text-decoration: line-through;
+      color: #9f9f9f;
     `}
   margin: .5rem;
   border: solid;
