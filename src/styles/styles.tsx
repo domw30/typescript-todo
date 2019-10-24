@@ -30,6 +30,7 @@ export const TodoListWrapper = styled.section`
   flex-direction: column;
   margin: 1rem;
   padding: 0.5rem;
+  overflow-y: auto;
 `;
 
 export const TodoList = styled.div`
