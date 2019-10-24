@@ -1,24 +1,6 @@
 import styled, { keyframes, css } from 'styled-components';
 import { TodoItemProps } from '../interfaces/todo-item-props';
 
-export const FadeIn = keyframes`
-from {
-  opacity: 0.2;
-}
-to {
-  opacity: 1;
-}
-}`;
-
-export const ColorChange = keyframes`
-from {
-  color: #9bd3fd;
-}
-to {
-  color: #f3f2f2;
-}
-}`;
-
 export const Rotate = keyframes`
 from {
   transform: rotate(0deg);
@@ -31,7 +13,6 @@ to {
 export const Header = styled.header``;
 
 export const TodoHeading = styled.h1`
-  animation: ${ColorChange} 0.2s infinite linear;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,7 +64,6 @@ export const CreateButton = styled.button`
 `;
 
 export const CompleteButton = styled.button`
-  animation: ${FadeIn} 0.3s infinite linear;
   background-color: #4c4c4c;
   cursor: pointer;
   padding: 0.2rem;
@@ -96,7 +76,6 @@ export const CompleteButton = styled.button`
 `;
 
 export const DeleteButton = styled.button`
-  animation: ${FadeIn} 0.3s infinite linear;
   background-color: #4c4c4c;
   cursor: pointer;
   padding: 0.5rem;
