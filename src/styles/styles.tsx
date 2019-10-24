@@ -14,10 +14,16 @@ export const TodoForm = styled.form`
   border: none;
 `;
 
-export const TodoList = styled.section`
+export const TodoListWrapper = styled.section`
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  padding: 0.5rem;
+`;
+
+export const TodoList = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 export const TodoInput = styled.input`

@@ -7,10 +7,11 @@ import {
   TodoForm,
   TodoInput,
   CreateButton,
-  TodoList,
+  TodoListWrapper,
   TodoListItem,
   CompleteButton,
   DeleteButton,
+  TodoList,
 } from '../styles/styles';
 
 function App(): JSX.Element {
@@ -65,10 +66,10 @@ function App(): JSX.Element {
         </CreateButton>
       </TodoForm>
 
-      <TodoList>
+      <TodoListWrapper>
         {todos
           .map((todo: Todo, index: number) => (
-            <div key={index}>
+            <TodoList key={index}>
               <TodoListItem complete={todo.complete}>{todo.text}</TodoListItem>
               <CompleteButton
                 type="button"
@@ -82,10 +83,10 @@ function App(): JSX.Element {
               >
                 <DeleteIcon />
               </DeleteButton>
-            </div>
+            </TodoList>
           ))
           .reverse()}
-      </TodoList>
+      </TodoListWrapper>
     </Fragment>
   );
 }
