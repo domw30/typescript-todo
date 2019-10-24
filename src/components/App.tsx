@@ -12,6 +12,7 @@ import {
   CompleteButton,
   DeleteButton,
   TodoList,
+  Header,
 } from '../styles/styles';
 
 function App(): JSX.Element {
@@ -52,7 +53,9 @@ function App(): JSX.Element {
   return (
     <Fragment>
       <GlobalStyles />
-      <TodoHeading>Todo List</TodoHeading>
+      <Header>
+        <TodoHeading>Todo List</TodoHeading>
+      </Header>
       <TodoForm onSubmit={handleSubmit}>
         <TodoInput
           type="text"

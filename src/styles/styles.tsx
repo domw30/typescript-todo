@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { TodoItemProps } from '../interfaces/todo-item-props';
 
+export const Header = styled.header``;
 export const TodoHeading = styled.h1`
   display: flex;
   flex-direction: column;
@@ -23,6 +24,7 @@ export const TodoListWrapper = styled.section`
 
 export const TodoList = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: center;
 `;
 
