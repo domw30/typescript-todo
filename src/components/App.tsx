@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Todo } from '../interfaces/Todo';
+import { Todo } from '../interfaces/todo';
 import { GlobalStyles } from '../styles/global-styles';
 import { DeleteIcon, CheckIcon, AddIcon } from '../styles/icons';
 import {
