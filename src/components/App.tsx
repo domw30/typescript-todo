@@ -68,7 +68,6 @@ function App(): JSX.Element {
           <AddIcon />
         </CreateButton>
       </TodoForm>
-
       <TodoListWrapper>
         {todos
           .map((todo: Todo, index: number) => (
