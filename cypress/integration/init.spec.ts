@@ -6,8 +6,8 @@ describe('Example', () => {
   });
 });
 
-describe('Youtube Link', () => {
-  it('takes me to youtube', () => {
-    cy.visit('http://youtube.com');
+describe('Flexbox Froggy Link', () => {
+  it('directs user to Flexbox Froggy', () => {
+    cy.visit('http://flexboxfroggy.com');
   });
 });
