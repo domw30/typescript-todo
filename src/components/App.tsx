@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Todo } from '../interfaces/Todo';
 import { GlobalStyles } from '../styles/global-styles';
-import { DeleteIcon, CheckIcon } from '../styles/icons';
+import { DeleteIcon, CheckIcon, AddIcon } from '../styles/icons';
 import {
   TodoHeading,
   TodoForm,
@@ -9,6 +9,8 @@ import {
   CreateButton,
   TodoList,
   TodoListItem,
+  CompleteButton,
+  DeleteButton,
 } from '../styles/styles';
 
 function App(): JSX.Element {
@@ -58,21 +60,28 @@ function App(): JSX.Element {
           onChange={handleChange}
           required={true}
         />
-        <CreateButton type="submit">Add Todo</CreateButton>
+        <CreateButton type="submit">
+          <AddIcon />
+        </CreateButton>
       </TodoForm>
+
       <TodoList>
         {todos
           .map((todo: Todo, index: number) => (
             <div key={index}>
               <TodoListItem complete={todo.complete}>{todo.text}</TodoListItem>
-              <CheckIcon
+              <CompleteButton
                 type="button"
                 onClick={(): void => completeTodo(index)}
-              />
-              <DeleteIcon
+              >
+                <CheckIcon />
+              </CompleteButton>
+              <DeleteButton
                 type="button"
                 onClick={(): void => removeTodo(index)}
-              />
+              >
+                <DeleteIcon />
+              </DeleteButton>
             </div>
           ))
           .reverse()}
