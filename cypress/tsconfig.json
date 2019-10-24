@@ -1,9 +1,14 @@
 {
-  "extends": "../tsconfig",
   "compilerOptions": {
-    "baseUrl": "../node_modules",
+    "strict": true,
+    "sourceMap": true,
+    "module": "commonjs",
     "target": "es5",
+    "lib": ["dom", "es6"],
+    "jsx": "react",
+    "experimentalDecorators": true,
     "types": ["cypress"]
   },
+  "compileOnSave": false,
   "include": ["**/*.ts"]
 }
