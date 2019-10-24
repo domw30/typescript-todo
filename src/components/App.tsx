@@ -8,6 +8,7 @@ import {
   TodoInput,
   CreateButton,
   TodoList,
+  TodoItem,
 } from '../styles/styles';
 
 function App(): JSX.Element {
@@ -63,13 +64,7 @@ function App(): JSX.Element {
         {todos
           .map((todo: Todo, index: number) => (
             <div key={index}>
-              <div
-                style={{
-                  textDecoration: todo.complete ? 'line-through' : '',
-                }}
-              >
-                {todo.text}
-              </div>
+              <TodoItem complete={todo.complete}>{todo.text}</TodoItem>
               {todo.complete ? (
                 <Uncheck
                   type="button"
