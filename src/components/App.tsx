@@ -64,7 +64,7 @@ function App(): JSX.Element {
           onChange={handleChange}
           required={true}
         />
-        <CreateButton type="submit">
+        <CreateButton type="submit" data-type="add-button">
           <AddIcon />
         </CreateButton>
       </TodoForm>
@@ -75,12 +75,14 @@ function App(): JSX.Element {
               <TodoListItem complete={todo.complete}>{todo.text}</TodoListItem>
               <CompleteButton
                 type="button"
+                data-type="check-button"
                 onClick={(): void => completeTodo(index)}
               >
                 <CheckIcon />
               </CompleteButton>
               <DeleteButton
                 type="button"
+                data-type="delete-button"
                 onClick={(): void => removeTodo(index)}
               >
                 <DeleteIcon />
