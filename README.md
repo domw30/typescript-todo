@@ -7,9 +7,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### To Use
 
-Run 'npm install' to install dependencies.
+Run 'yarn install' to install dependencies.
 
-Run 'npm start' to kickoff build and visit http://localhost:3000.
+Run 'yarn start' to kickoff build and visit http://localhost:3000.
+
+### To Test
+
+Run 'yarn cypress open' to open cypress window.
+
+Select an option under integration tests e.g. 'init.spec.ts'.
+
+This opens http://localhost:3000 in the browser which records the tests.
 
 ### User Stories
 
