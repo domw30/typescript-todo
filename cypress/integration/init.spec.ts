@@ -110,7 +110,13 @@ describe('Todo List Buttons', () => {
       .click();
   });
 
-  // it('should delete a todo by clicking delete icon button', () => {
-  //   cy.get()
-  // })
+  it('should delete a todo by clicking delete icon button', () => {
+    cy.get('input')
+      .type('Pick up dry cleaning')
+      .get('[data-type="add-button"]')
+      .click()
+      .get('section')
+      .get('[data-type="delete-button"]')
+      .click();
+  });
 });
