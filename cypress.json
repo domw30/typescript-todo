@@ -1,1 +1,1 @@
-{ "pageLoadTimeout": 10000 }
+{ "pageLoadTimeout": 10000, "baseUrl": "http://localhost:3000" }

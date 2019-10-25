@@ -1,34 +1,35 @@
 /// <reference types="cypress" />
+// import { addTodos } from '../fixtures/add-todos';
 
 describe('Todo List', () => {
   it('visits the Todo List single page app', () => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
   });
 
   it('finds the content "Todo List"', () => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
     cy.contains('Todo List');
   });
 
   it('has existing input field', () => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
     cy.get('form');
   });
 
   it('types a todo into the input field', () => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
     cy.get('form').type('Pick up dry cleaning');
   });
 
   it('adds a todo to the list of todos', () => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
     cy.get('form')
       .type('Pick up dry cleaning')
       .submit();
   });
 
   it('adds multiple todos using the create todo button', () => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
     cy.get('form').type('Pick up dry cleaning');
     cy.get('button').click();
     cy.get('form').type('Clean the kitchen');
@@ -36,7 +37,7 @@ describe('Todo List', () => {
   });
 
   it('adds and displays mulitple todos to the list by Enter key', () => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
     cy.get('form')
       .type('Pick up dry cleaning')
       .submit();
@@ -54,38 +55,44 @@ describe('Todo List', () => {
       .submit();
   });
 
-  it('adds and displays mulitple todos to the list by Enter key', () => {
-    cy.visit('http://localhost:3000/');
+  it('overflow allows scroll to bottom of todo list', () => {
+    cy.visit('/');
     cy.get('form')
       .type('Todo1')
-      .submit();
-    cy.get('form')
+      .submit()
+      .get('form')
       .type('Todo2')
-      .submit();
-    cy.get('form')
+      .submit()
+      .get('form')
       .type('Todo3')
-      .submit();
-    cy.get('form')
+      .submit()
+      .get('form')
       .type('Todo4')
-      .submit();
-    cy.get('form')
+      .submit()
+      .get('form')
       .type('Todo5')
-      .submit();
-    cy.get('form')
+      .submit()
+      .get('form')
       .type('Todo6')
-      .submit();
-    cy.get('form')
+      .submit()
+      .get('form')
       .type('Todo7')
-      .submit();
-    cy.get('form')
+      .submit()
+      .get('form')
       .type('Todo8')
-      .submit();
-    cy.get('form')
+      .submit()
+      .get('form')
       .type('Todo9')
-      .submit();
-    cy.get('form')
+      .submit()
+      .get('form')
       .type('Todo10')
       .submit();
     cy.get('section').scrollTo('bottom');
   });
+
+  // it('overflow allows scroll to bottom of todo list', () => {
+  //   cy.visit('/');
+  //   addTodos;
+  //   cy.get('section').scrollTo('bottom');
+  // });
 });
