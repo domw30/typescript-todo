@@ -1,10 +1,9 @@
 /// <reference types="cypress" />
 
-describe('Todo List', () => {
+describe('Todo List Form Input', () => {
   beforeEach(() => {
     cy.visit('/');
   });
-
   it('visits the Todo List single page app', () => {});
 
   it('finds the content "Todo List"', () => {
@@ -24,13 +23,6 @@ describe('Todo List', () => {
     cy.get('form')
       .type('Pick up dry cleaning')
       .submit();
-  });
-
-  it('adds multiple todos using the add todo button', () => {
-    cy.get('form').type('Pick up dry cleaning');
-    cy.get('button').click();
-    cy.get('form').type('Clean the kitchen');
-    cy.get('[data-type="add-button"]').click();
   });
 
   it('adds and displays mulitple todos to the list by Enter key', () => {
@@ -83,5 +75,36 @@ describe('Todo List', () => {
       .type('Todo10')
       .submit();
     cy.get('section').scrollTo('bottom');
+  });
+});
+
+describe('Todo List Buttons', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
+  it('adds multiple todos using the add todo button', () => {
+    cy.get('form').type('Pick up dry cleaning');
+    cy.get('[data-type="add-button"]').click();
+    cy.get('form').type('Clean the kitchen');
+    cy.get('[data-type="add-button"]').click();
+  });
+
+  it('toggles complete by clicking check icon', () => {
+    cy.get('form')
+      .type('Pick up dry cleaning')
+      .submit()
+      .get('section')
+      .get('[data-type="check-button"]')
+      .click();
+  });
+
+  it('toggles incomplete by clicking check icon after being toggled complete', () => {
+    cy.get('form')
+      .type('Pick up dry cleaning')
+      .submit()
+      .get('section')
+      .get('[data-type="check-button"]')
+      .click()
+      .click();
   });
 });
