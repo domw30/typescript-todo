@@ -26,4 +26,23 @@ describe('Todo List', () => {
       .type('Pick up dry cleaning')
       .submit();
   });
+
+  it('adds mulitple todos to the list of todos', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('form')
+      .type('Pick up dry cleaning')
+      .submit()
+      .get('form')
+      .type('Order more bananas')
+      .submit()
+      .get('form')
+      .type('Clean the kitchen')
+      .submit()
+      .get('form')
+      .type('Walk the dog')
+      .submit()
+      .get('form')
+      .type('Finish CY testing')
+      .submit();
+  });
 });
