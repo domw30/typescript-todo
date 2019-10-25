@@ -16,7 +16,7 @@ describe('Todo List Page On Load', () => {
   });
 
   it('should have a rotating Add Icon button on load', () => {
-    cy.get('[data-type="add-button"]').should('be');
+    cy.get('[data-type="add-button"]').should('be.visible');
   });
 });
 
@@ -31,7 +31,9 @@ describe('Todo List Form and Section', () => {
   it('adds a todo to the list of todos by Enter', () => {
     cy.get('form')
       .type('Pick up dry cleaning')
-      .submit();
+      .submit()
+      .get('section')
+      .should('have.text', 'Pick up dry cleaning');
   });
 
   it('adds and displays mulitple todos to the list by Enter', () => {
