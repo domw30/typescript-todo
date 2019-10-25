@@ -27,7 +27,7 @@ describe('Todo List', () => {
       .submit();
   });
 
-  it('adds mulitple todos to the list of todos', () => {
+  it('adds and displays mulitple todos to the list by Enter key', () => {
     cy.visit('http://localhost:3000/');
     cy.get('form')
       .type('Pick up dry cleaning')
@@ -44,5 +44,17 @@ describe('Todo List', () => {
       .get('form')
       .type('Finish CY testing')
       .submit();
+  });
+
+  it('adds multiple todos using the create todo button', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('form')
+      .type('Pick up dry cleaning')
+      .get('button')
+      .click();
+    cy.get('form')
+      .type('Clean the kitchen')
+      .get('button')
+      .click({ multiple: true });
   });
 });
