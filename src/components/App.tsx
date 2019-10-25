@@ -72,7 +72,9 @@ function App(): JSX.Element {
         {todos
           .map((todo: Todo, index: number) => (
             <TodoList key={index}>
-              <TodoListItem complete={todo.complete}>{todo.text}</TodoListItem>
+              <TodoListItem data-type="todo-item" complete={todo.complete}>
+                {todo.text}
+              </TodoListItem>
               <CompleteButton
                 type="button"
                 data-type="check-button"
