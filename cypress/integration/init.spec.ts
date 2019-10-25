@@ -12,19 +12,18 @@ describe('Todo List', () => {
 
   it('has existing input field', () => {
     cy.visit('http://localhost:3000/');
-    cy.get('input');
+    cy.get('form');
   });
 
   it('types a todo into the input field', () => {
     cy.visit('http://localhost:3000/');
-    cy.get('input').type('Pick up dry cleaning');
+    cy.get('form').type('Pick up dry cleaning');
   });
 
   it('adds a todo to the list of todos', () => {
     cy.visit('http://localhost:3000/');
-    cy.get('input')
+    cy.get('form')
       .type('Pick up dry cleaning')
-      .get('button')
-      .click();
+      .submit();
   });
 });
