@@ -114,7 +114,9 @@ describe('Todo List Buttons', () => {
       .click()
       .get('section')
       .get('[data-type="check-button"]')
-      .click();
+      .click()
+      .get('[data-type="todo-item"]')
+      .should('have.text', 'Pick up dry cleaning');
   });
 
   it('toggles incomplete by clicking check icon after being toggled complete', () => {
@@ -125,7 +127,10 @@ describe('Todo List Buttons', () => {
       .get('section')
       .get('[data-type="check-button"]')
       .click()
-      .click();
+      .click()
+      .get('[data-type="todo-item"]')
+      .contains('Pick up dry cleaning')
+      .should('have.css', 'text-decoration');
   });
 
   it('should delete a todo by clicking delete icon button', () => {
