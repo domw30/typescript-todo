@@ -6,13 +6,17 @@ describe('Todo List Page On Load', () => {
   });
   it('visits the Todo List single page app', () => {});
 
-  it('finds the content "Todo List"', () => {
+  it('finds the content "Todo List" on load', () => {
     cy.get('h1');
     cy.contains('Todo List');
   });
 
-  it('has existing input field', () => {
-    cy.get('form');
+  it('has existing input field on load', () => {
+    cy.get('form').should('be.visible');
+  });
+
+  it('should have a rotating Add Icon button on load', () => {
+    cy.get('[data-type="add-button"]').should('be');
   });
 });
 
