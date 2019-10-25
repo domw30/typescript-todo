@@ -27,34 +27,65 @@ describe('Todo List', () => {
       .submit();
   });
 
+  it('adds multiple todos using the create todo button', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('form').type('Pick up dry cleaning');
+    cy.get('button').click();
+    cy.get('form').type('Clean the kitchen');
+    cy.get('button').click({ multiple: true });
+  });
+
   it('adds and displays mulitple todos to the list by Enter key', () => {
     cy.visit('http://localhost:3000/');
     cy.get('form')
       .type('Pick up dry cleaning')
-      .submit()
-      .get('form')
+      .submit();
+    cy.get('form')
       .type('Order more bananas')
-      .submit()
-      .get('form')
+      .submit();
+    cy.get('form')
       .type('Clean the kitchen')
-      .submit()
-      .get('form')
+      .submit();
+    cy.get('form')
       .type('Walk the dog')
-      .submit()
-      .get('form')
+      .submit();
+    cy.get('form')
       .type('Finish CY testing')
       .submit();
   });
 
-  it('adds multiple todos using the create todo button', () => {
+  it('adds and displays mulitple todos to the list by Enter key', () => {
     cy.visit('http://localhost:3000/');
     cy.get('form')
-      .type('Pick up dry cleaning')
-      .get('button')
-      .click();
+      .type('Todo1')
+      .submit();
     cy.get('form')
-      .type('Clean the kitchen')
-      .get('button')
-      .click({ multiple: true });
+      .type('Todo2')
+      .submit();
+    cy.get('form')
+      .type('Todo3')
+      .submit();
+    cy.get('form')
+      .type('Todo4')
+      .submit();
+    cy.get('form')
+      .type('Todo5')
+      .submit();
+    cy.get('form')
+      .type('Todo6')
+      .submit();
+    cy.get('form')
+      .type('Todo7')
+      .submit();
+    cy.get('form')
+      .type('Todo8')
+      .submit();
+    cy.get('form')
+      .type('Todo9')
+      .submit();
+    cy.get('form')
+      .type('Todo10')
+      .submit();
+    cy.get('section').scrollTo('bottom');
   });
 });
