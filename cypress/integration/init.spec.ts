@@ -97,7 +97,14 @@ describe('Todo List Buttons', () => {
     cy.get('input').type('Pick up dry cleaning');
     cy.get('[data-type="add-button"]').click();
     cy.get('input').type('Clean the kitchen');
-    cy.get('[data-type="add-button"]').click();
+    cy.get('[data-type="add-button"]')
+      .click()
+      .get('section')
+      .contains('Pick up dry cleaning')
+      .should('be.visible')
+      .get('section')
+      .contains('Clean the kitchen')
+      .should('be.visible');
   });
 
   it('toggles complete by clicking check icon', () => {
@@ -128,6 +135,9 @@ describe('Todo List Buttons', () => {
       .click()
       .get('section')
       .get('[data-type="delete-button"]')
-      .click();
+      .click()
+      .get('section')
+      .contains('Pick up dry cleaning')
+      .should('not.be.visible');
   });
 });
