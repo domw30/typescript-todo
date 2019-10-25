@@ -10,8 +10,13 @@ describe('Todo List', () => {
     cy.contains('Todo List');
   });
 
-  it('clicks the input field "Enter Todo"', () => {
+  it('has existing input field', () => {
     cy.visit('http://localhost:3000/');
     cy.get('input');
+  });
+
+  it('types a todo into the input field', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('input').type('Pick up dry cleaning');
   });
 });
