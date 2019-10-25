@@ -19,4 +19,12 @@ describe('Todo List', () => {
     cy.visit('http://localhost:3000/');
     cy.get('input').type('Pick up dry cleaning');
   });
+
+  it('adds a todo to the list of todos', () => {
+    cy.visit('http://localhost:3000/');
+    cy.get('input')
+      .type('Pick up dry cleaning')
+      .get('button')
+      .click();
+  });
 });
