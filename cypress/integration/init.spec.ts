@@ -83,28 +83,34 @@ describe('Todo List Buttons', () => {
     cy.visit('/');
   });
   it('adds multiple todos using the add todo button', () => {
-    cy.get('form').type('Pick up dry cleaning');
+    cy.get('input').type('Pick up dry cleaning');
     cy.get('[data-type="add-button"]').click();
-    cy.get('form').type('Clean the kitchen');
+    cy.get('input').type('Clean the kitchen');
     cy.get('[data-type="add-button"]').click();
   });
 
   it('toggles complete by clicking check icon', () => {
-    cy.get('form')
+    cy.get('input')
       .type('Pick up dry cleaning')
-      .submit()
+      .get('[data-type="add-button"]')
+      .click()
       .get('section')
       .get('[data-type="check-button"]')
       .click();
   });
 
   it('toggles incomplete by clicking check icon after being toggled complete', () => {
-    cy.get('form')
+    cy.get('input')
       .type('Pick up dry cleaning')
-      .submit()
+      .get('[data-type="add-button"]')
+      .click()
       .get('section')
       .get('[data-type="check-button"]')
       .click()
       .click();
   });
+
+  // it('should delete a todo by clicking delete icon button', () => {
+  //   cy.get()
+  // })
 });
