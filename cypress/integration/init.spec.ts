@@ -1,43 +1,39 @@
 /// <reference types="cypress" />
-// import { addTodos } from '../fixtures/add-todos';
 
 describe('Todo List', () => {
-  it('visits the Todo List single page app', () => {
+  beforeEach(() => {
     cy.visit('/');
   });
 
+  it('visits the Todo List single page app', () => {});
+
   it('finds the content "Todo List"', () => {
-    cy.visit('/');
+    cy.get('h1');
     cy.contains('Todo List');
   });
 
   it('has existing input field', () => {
-    cy.visit('/');
     cy.get('form');
   });
 
   it('types a todo into the input field', () => {
-    cy.visit('/');
     cy.get('form').type('Pick up dry cleaning');
   });
 
   it('adds a todo to the list of todos', () => {
-    cy.visit('/');
     cy.get('form')
       .type('Pick up dry cleaning')
       .submit();
   });
 
-  it('adds multiple todos using the create todo button', () => {
-    cy.visit('/');
+  it('adds multiple todos using the add todo button', () => {
     cy.get('form').type('Pick up dry cleaning');
     cy.get('button').click();
     cy.get('form').type('Clean the kitchen');
-    cy.get('button').click({ multiple: true });
+    cy.get('[data-type="add-button"]').click();
   });
 
   it('adds and displays mulitple todos to the list by Enter key', () => {
-    cy.visit('/');
     cy.get('form')
       .type('Pick up dry cleaning')
       .submit();
@@ -56,7 +52,6 @@ describe('Todo List', () => {
   });
 
   it('overflow allows scroll to bottom of todo list', () => {
-    cy.visit('/');
     cy.get('form')
       .type('Todo1')
       .submit()
@@ -89,10 +84,4 @@ describe('Todo List', () => {
       .submit();
     cy.get('section').scrollTo('bottom');
   });
-
-  // it('overflow allows scroll to bottom of todo list', () => {
-  //   cy.visit('/');
-  //   addTodos;
-  //   cy.get('section').scrollTo('bottom');
-  // });
 });
