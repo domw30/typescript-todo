@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Todo List Form Input', () => {
+describe('Todo List Page On Load', () => {
   beforeEach(() => {
     cy.visit('/');
   });
@@ -14,18 +14,23 @@ describe('Todo List Form Input', () => {
   it('has existing input field', () => {
     cy.get('form');
   });
+});
 
+describe('Todo List Form and Section', () => {
+  beforeEach(() => {
+    cy.visit('/');
+  });
   it('types a todo into the input field', () => {
     cy.get('form').type('Pick up dry cleaning');
   });
 
-  it('adds a todo to the list of todos', () => {
+  it('adds a todo to the list of todos by Enter', () => {
     cy.get('form')
       .type('Pick up dry cleaning')
       .submit();
   });
 
-  it('adds and displays mulitple todos to the list by Enter key', () => {
+  it('adds and displays mulitple todos to the list by Enter', () => {
     cy.get('form')
       .type('Pick up dry cleaning')
       .submit();
