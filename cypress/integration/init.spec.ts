@@ -85,7 +85,9 @@ describe('Todo List Form and Section', () => {
       .get('form')
       .type('Todo10')
       .submit();
-    cy.get('section').scrollTo('bottom');
+    cy.get('section')
+      .scrollTo('bottom')
+      .should('have.css', 'overflow');
   });
 });
 
