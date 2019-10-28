@@ -131,8 +131,7 @@ describe('Todo List Buttons', () => {
       .click()
       .click()
       .get('[data-type="todo-item"]')
-      .contains('Pick up dry cleaning')
-      .should('have.css', 'text-decoration');
+      .should('not.have.css', 'text-decoration', 'line-through');
   });
 
   it('should delete a todo by clicking delete icon button', () => {
