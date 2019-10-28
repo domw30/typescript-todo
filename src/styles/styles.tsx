@@ -45,6 +45,7 @@ export const TodoInput = styled.input`
   width: 50%;
   opacity: 0.6;
   text-align: center;
+  color: #fe7575;
   :hover {
     background-color: #f3f2f2;
     opacity: 1;
