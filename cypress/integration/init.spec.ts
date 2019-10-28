@@ -86,7 +86,7 @@ describe('Todo List App', () => {
         .submit();
       cy.get('section')
         .scrollTo('bottom')
-        .should('have.css', 'overflow');
+        .should('have.css', 'overflow', 'auto');
     });
   });
 
