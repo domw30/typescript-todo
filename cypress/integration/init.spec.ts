@@ -13,6 +13,10 @@ describe('Todo List App', () => {
       cy.contains('Todo List');
     });
 
+    it('should have font-family of Fredoka One', () => {
+      cy.get('h1').should('have.css', 'font-family', '"Fredoka One", cursive');
+    });
+
     it('has existing input field on load', () => {
       cy.get('form').should('be.visible');
     });
