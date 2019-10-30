@@ -1,7 +1,12 @@
 import React from 'react';
 import { render, mount, shallow } from 'enzyme';
 import App from '../components/app';
-import { TodoInput, TodoForm, TodoListItem } from '../styles/styles';
+import {
+  TodoInput,
+  TodoForm,
+  TodoListItem,
+  DeleteButton,
+} from '../styles/styles';
 
 describe('First component test with Enzyme', () => {
   it('renders without crashing', () => {
@@ -37,6 +42,23 @@ describe('App', () => {
         .simulate('submit', { preventDefault: mockPreventDefault });
       const result = wrapper.find(TodoListItem).text();
       expect(result).toBe('Test Todo');
+    });
+  });
+
+  describe('when a user deletes a Todo by clicking the delete icon', () => {
+    it('should update the todos state property by removing the Todo', () => {
+      const mockPreventDefault = jest.fn();
+      const wrapper = shallow(<App />);
+      wrapper.find(TodoInput).simulate('change', {
+        preventDefault: mockPreventDefault,
+        target: { value: 'Test Todo' },
+      });
+      wrapper
+        .find(TodoForm)
+        .simulate('submit', { preventDefault: mockPreventDefault });
+      wrapper.find(DeleteButton).simulate('click');
+      const result = wrapper.find(TodoListItem);
+      expect(result.find('TodoListItem').exists()).toBe(false);
     });
   });
 });
