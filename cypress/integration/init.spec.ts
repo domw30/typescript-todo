@@ -35,7 +35,7 @@ describe('Todo List App', () => {
       cy.get('form')
         .type('Pick up dry cleaning')
         .submit()
-        .get('section')
+        .get('ul')
         .should('have.text', 'Pick up dry cleaning');
     });
 
@@ -88,7 +88,7 @@ describe('Todo List App', () => {
         .get('form')
         .type('Todo10')
         .submit();
-      cy.get('section')
+      cy.get('ul')
         .scrollTo('bottom')
         .should('have.css', 'overflow', 'auto');
     });
@@ -101,10 +101,10 @@ describe('Todo List App', () => {
       cy.get('input').type('Clean the kitchen');
       cy.get('[data-type="add-button"]')
         .click()
-        .get('section')
+        .get('ul')
         .contains('Pick up dry cleaning')
         .should('be.visible')
-        .get('section')
+        .get('ul')
         .contains('Clean the kitchen')
         .should('be.visible');
     });
@@ -114,7 +114,7 @@ describe('Todo List App', () => {
         .type('Pick up dry cleaning')
         .get('[data-type="add-button"]')
         .click()
-        .get('section')
+        .get('ul')
         .get('[data-type="check-button"]')
         .click()
         .get('[data-type="todo-item"]')
@@ -126,7 +126,7 @@ describe('Todo List App', () => {
         .type('Pick up dry cleaning')
         .get('[data-type="add-button"]')
         .click()
-        .get('section')
+        .get('ul')
         .get('[data-type="check-button"]')
         .click()
         .click()
@@ -139,10 +139,10 @@ describe('Todo List App', () => {
         .type('Pick up dry cleaning')
         .get('[data-type="add-button"]')
         .click()
-        .get('section')
+        .get('ul')
         .get('[data-type="delete-button"]')
         .click()
-        .get('section')
+        .get('ul')
         .contains('Pick up dry cleaning')
         .should('not.be.visible');
     });
