@@ -65,7 +65,7 @@ function App(): JSX.Element {
           required={true}
         />
         <CreateButton type="submit" data-type="add-button">
-          <AddIcon />
+          <AddIcon data-type="add-icon" />
         </CreateButton>
       </TodoForm>
       <TodoListWrapper>

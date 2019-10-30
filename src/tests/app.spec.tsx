@@ -1,32 +1,20 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import App from '../components/app';
-import renderer from 'react-test-renderer';
-import Header from '../components/app';
-import TodoForm from '../components/app';
+
+// shallow assertion method. Igonres any child components. E.g. Header will be ignored.
+// A type of unit test for React, designed to test one function.
+// smoke test. Verifies a component renders without crashing/throwing.
 
 describe('First React component test with Enzyme', () => {
   it('renders without crashing', () => {
-    shallow(<App />);
-    // shallow assertion method. Igonres any child components. E.g. Header will be ignored.
-    // A typed of unit test for React, designed to test one function.
-    // smoke test. Verifies a component renders without crashing/throwing.
+    mount(<App />);
   });
 });
 
-describe('First Snapshot test', () => {
-  it('app should render correctly', () => {
-    const app = renderer.create(<App />).toJSON();
-    expect(app).toMatchSnapshot();
-  });
-
-  it('should render header correctly', () => {
-    const header = shallow(<Header />);
-    expect(header).toMatchSnapshot();
-  });
-
-  it('should render TodoForm correctly', () => {
-    const todoForm = shallow(<TodoForm />);
-    expect(todoForm).toMatchSnapshot();
+describe('First snapshot test', () => {
+  it('app should render correctly and match the snapshot', () => {
+    const wrapper = mount(<App />);
+    expect(wrapper).toMatchSnapshot();
   });
 });
