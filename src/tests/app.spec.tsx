@@ -37,6 +37,8 @@ describe('App', () => {
         preventDefault: mockPreventDefault,
         target: { value: 'Test Todo' },
       });
+      const items = wrapper.find(TodoListItem);
+      expect(items.find(TodoListItem).exists()).toBe(false);
       wrapper
         .find(TodoForm)
         .simulate('submit', { preventDefault: mockPreventDefault });
@@ -45,7 +47,7 @@ describe('App', () => {
     });
   });
 
-  describe('when a user deletes a Todo by clicking the delete icon', () => {
+  describe('when a user deletes a Todo by clicking the DeleteButton', () => {
     it('should update the todos state property by removing the Todo', () => {
       const mockPreventDefault = jest.fn();
       const wrapper = shallow(<App />);
