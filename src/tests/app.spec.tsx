@@ -25,7 +25,7 @@ describe('static rendering tests', () => {
 
 describe('App', () => {
   describe('when a user adds a Todo into the todo input', () => {
-    it('should update the input value state property', () => {
+    it('should update the input value and todos state properties', () => {
       const mockPreventDefault = jest.fn();
       const wrapper = shallow(<App />);
       wrapper.find(TodoInput).simulate('change', {
@@ -35,9 +35,7 @@ describe('App', () => {
       wrapper
         .find(TodoForm)
         .simulate('submit', { preventDefault: mockPreventDefault });
-
       const result = wrapper.find(TodoListItem).text();
-
       expect(result).toBe('Test Todo');
     });
   });
