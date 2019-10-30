@@ -25,7 +25,7 @@ export const TodoForm = styled.form`
   border: none;
 `;
 
-export const TodoListWrapper = styled.section`
+export const TodoListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   margin: 1rem;
@@ -33,7 +33,7 @@ export const TodoListWrapper = styled.section`
   overflow-y: auto;
 `;
 
-export const TodoList = styled.div`
+export const TodoList = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: center;
