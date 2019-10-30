@@ -1,20 +1,23 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, mount } from 'enzyme';
 import App from '../components/app';
 
-// shallow assertion method. Igonres any child components. E.g. Header will be ignored.
-// A type of unit test for React, designed to test one function.
-// smoke test. Verifies a component renders without crashing/throwing.
-
-describe('First React component test with Enzyme', () => {
+describe('First component test with Enzyme', () => {
   it('renders without crashing', () => {
     mount(<App />);
   });
 });
 
-describe('First snapshot test', () => {
+describe('First component snapshot test', () => {
   it('app should render correctly and match the snapshot', () => {
     const wrapper = mount(<App />);
     expect(wrapper).toMatchSnapshot();
+  });
+});
+
+describe('static rendering tests', () => {
+  it('renders the heading Todo List', () => {
+    const wrapper = render(<App />);
+    expect(wrapper.text()).toContain('Todo List');
   });
 });
