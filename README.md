@@ -11,13 +11,19 @@ Run 'yarn install' to install dependencies.
 
 Run 'yarn start' to kickoff build and visit http://localhost:3000.
 
-### To Test
+### End to End Testing
 
 Run 'yarn cypress open' to open cypress window.
 
-Select an option under integration tests e.g. 'init.spec.ts'.
+Select 'init.spec.ts' an option under integration tests.
 
 This opens http://localhost:3000 in the browser which records the tests.
+
+### Integration / Unit Testing
+
+Run 'yarn test'.
+
+In the terminal you will see a display of tests.
 
 ### User Stories
 
