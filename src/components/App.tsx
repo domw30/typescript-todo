@@ -1,11 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import { Todo } from '../interfaces/todo';
 import { GlobalStyles } from '../styles/global-styles';
-import { DeleteIcon, CheckIcon, AddIcon } from '../styles/icons';
+import { DeleteIcon, CheckIcon } from '../styles/icons';
 import {
   TodoForm,
   TodoInput,
-  CreateButton,
   TodoListWrapper,
   TodoListItem,
   CompleteButton,
@@ -13,6 +12,7 @@ import {
   TodoList,
 } from '../styles/styles';
 import Header from '../components/header';
+import CreateButton from '../components/create-button';
 
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
@@ -61,9 +61,7 @@ function App(): JSX.Element {
           onChange={handleChange}
           required={true}
         />
-        <CreateButton type="submit" data-type="add-button">
-          <AddIcon />
-        </CreateButton>
+        <CreateButton data-type="add-button" />
       </TodoForm>
       <TodoListWrapper>
         {todos
