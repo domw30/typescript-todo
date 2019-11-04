@@ -6,6 +6,7 @@ import {
   TodoForm,
   TodoListItem,
   DeleteButton,
+  CompleteButton,
 } from '../styles/styles';
 
 describe('First component test with Enzyme', () => {
@@ -61,6 +62,23 @@ describe('App', () => {
       wrapper.find(DeleteButton).simulate('click');
       const result = wrapper.find(TodoListItem);
       expect(result.find('TodoListItem').exists()).toBe(false);
+    });
+  });
+
+  describe('when a user toggles a Todo as complete by clicking the CompleteButton', () => {
+    it('should update and mark the Todo List Item as complete', () => {
+      const mockPreventDefault = jest.fn();
+      const wrapper = shallow(<App />);
+      wrapper.find(TodoInput).simulate('change', {
+        preventDefault: mockPreventDefault,
+        target: { value: 'Test Todo' },
+      });
+      wrapper
+        .find(TodoForm)
+        .simulate('submit', { preventDefault: mockPreventDefault });
+      wrapper.find(CompleteButton).simulate('click');
+      const result = wrapper.find(TodoListItem).props();
+      expect(result).toHaveProperty('complete', true);
     });
   });
 });
