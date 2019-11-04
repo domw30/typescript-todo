@@ -61,7 +61,7 @@ function App(): JSX.Element {
           onChange={handleChange}
           required={true}
         />
-        <CreateButton data-type="add-button" />
+        <CreateButton />
       </TodoForm>
       <TodoListWrapper>
         {todos
