@@ -21,8 +21,8 @@ function App(): JSX.Element {
 
   const [barOpened, setBarOpened] = useState(false);
 
-  const formRef = useRef(null);
-  const inputFocus = useRef(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const inputFocus = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClick);
