@@ -11,8 +11,8 @@ import {
   DeleteButton,
   TodoList,
 } from '../styles/styles';
-import Header from '../components/header';
-import CreateButton from '../components/create-button';
+import Header from './header';
+import CreateButton from './create-button';
 
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
