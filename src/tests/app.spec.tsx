@@ -24,7 +24,7 @@ describe('First component snapshot test', () => {
 
 describe('static rendering tests', () => {
   it('renders the heading Todo List', () => {
-    const wrapper = shallow(<App />);
+    const wrapper = mount(<App />);
     expect(wrapper.text()).toContain('Todo List');
   });
 });
