@@ -1,8 +1,14 @@
 import React from 'react';
-import { TodoHeading } from '../styles/styles';
+import styled from 'styled-components';
+
+const Heading = styled.h1`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 function Header(): JSX.Element {
-  return <TodoHeading>Todo List</TodoHeading>;
+  return <Heading>Todo List</Heading>;
 }
 
 export default Header;

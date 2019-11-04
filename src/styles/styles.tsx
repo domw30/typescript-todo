@@ -1,12 +1,6 @@
 import styled, { css } from 'styled-components';
 import { TodoItemProps } from '../interfaces/todo-item-props';
 
-export const TodoHeading = styled.h1`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 export const TodoForm = styled.form`
   display: flex;
   flex-direction: row;
