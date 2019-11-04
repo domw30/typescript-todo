@@ -2,7 +2,7 @@ import React from 'react';
 import { AddIcon } from '../styles/icons';
 import styled, { keyframes } from 'styled-components';
 
-export const Rotate = keyframes`
+const Rotate = keyframes`
 from {
   transform: rotate(0deg);
 }
@@ -11,7 +11,7 @@ to {
 }
 }`;
 
-export const Button = styled.button`
+const Button = styled.button`
   animation: ${Rotate} 2s infinite linear;
   background-color: #4c4c4c;
   cursor: pointer;
