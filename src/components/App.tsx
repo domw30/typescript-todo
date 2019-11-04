@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useRef, useEffect } from 'react';
 import { Todo } from '../interfaces/todo';
 import { GlobalStyles } from '../styles/global-styles';
 import { DeleteIcon, CheckIcon, AddIcon } from '../styles/icons';
@@ -19,10 +19,30 @@ function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
   const [todos, setTodos] = useState<Todo[]>([]); // useState is expecting an array of interface Todos
 
+  const [barOpened, setBarOpened] = useState(false);
+
+  const formRef = useRef(null);
+  const inputFocus = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClick);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
+  }, []);
+
+  const handleClick = e => {
+    if (formRef.current.contains(e.target)) {
+      return;
+    }
+    setBarOpened(false);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault(); // prevents the form from doing a refresh.
     addTodo(inputValue);
     setValue(''); // Turns value in input to empty string.
+    setBarOpened(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -56,15 +76,29 @@ function App(): JSX.Element {
       <Header>
         <TodoHeading>Todo List</TodoHeading>
       </Header>
-      <TodoForm onSubmit={handleSubmit}>
+      <TodoForm
+        onSubmit={handleSubmit}
+        barOpened={barOpened}
+        ref={formRef}
+        onClick={() => {
+          setBarOpened(true);
+          inputFocus.current.focus();
+        }}
+      >
         <TodoInput
           type="text"
+          ref={inputFocus}
+          barOpened={barOpened}
           placeholder="Enter Todo"
           value={inputValue}
           onChange={handleChange}
           required={true}
         />
-        <CreateButton type="submit" data-type="add-button">
+        <CreateButton
+          type="submit"
+          data-type="add-button"
+          barOpened={barOpened}
+        >
           <AddIcon />
         </CreateButton>
       </TodoForm>
