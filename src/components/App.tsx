@@ -3,7 +3,6 @@ import { Todo } from '../interfaces/todo';
 import { GlobalStyles } from '../styles/global-styles';
 import { DeleteIcon, CheckIcon, AddIcon } from '../styles/icons';
 import {
-  TodoHeading,
   TodoForm,
   TodoInput,
   CreateButton,
@@ -12,8 +11,8 @@ import {
   CompleteButton,
   DeleteButton,
   TodoList,
-  Header,
 } from '../styles/styles';
+import Header from '../components/header';
 
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
@@ -53,9 +52,7 @@ function App(): JSX.Element {
   return (
     <Fragment>
       <GlobalStyles />
-      <Header>
-        <TodoHeading>Todo List</TodoHeading>
-      </Header>
+      <Header />
       <TodoForm onSubmit={handleSubmit}>
         <TodoInput
           type="text"

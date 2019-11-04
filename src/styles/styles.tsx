@@ -10,8 +10,6 @@ to {
 }
 }`;
 
-export const Header = styled.header``;
-
 export const TodoHeading = styled.h1`
   display: flex;
   flex-direction: column;
