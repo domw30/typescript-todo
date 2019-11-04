@@ -1,14 +1,5 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { TodoItemProps } from '../interfaces/todo-item-props';
-
-export const Rotate = keyframes`
-from {
-  transform: rotate(0deg);
-}
-to {
-  transform: rotate(360deg);
-}
-}`;
 
 export const TodoHeading = styled.h1`
   display: flex;
@@ -47,19 +38,6 @@ export const TodoInput = styled.input`
   :hover {
     background-color: #f3f2f2;
     opacity: 1;
-  }
-`;
-
-export const CreateButton = styled.button`
-  animation: ${Rotate} 2s infinite linear;
-  background-color: #4c4c4c;
-  cursor: pointer;
-  border: none;
-  border-radius: 10%;
-  margin: 0.5rem;
-  :hover {
-    background-color: #f3f2f2;
-    opacity: 0.4;
   }
 `;
 
