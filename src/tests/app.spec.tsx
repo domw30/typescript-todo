@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, mount, shallow } from 'enzyme';
-import App from '../components/app';
+import { mount, shallow } from 'enzyme';
+import App from '../components/App';
 import {
   TodoInput,
   TodoForm,
