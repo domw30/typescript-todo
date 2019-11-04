@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import App from '../components/App';
+import App from '../components/app';
 import {
   TodoInput,
   TodoForm,
@@ -77,6 +77,8 @@ describe('App', () => {
         .find(TodoForm)
         .simulate('submit', { preventDefault: mockPreventDefault });
       wrapper.find(CompleteButton).simulate('click');
+      const items = wrapper.find(TodoListItem).text();
+      expect(items).toBe('Test Todo');
       const result = wrapper.find(TodoListItem).props();
       expect(result).toHaveProperty('complete', true);
     });
