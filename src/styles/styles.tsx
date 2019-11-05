@@ -1,13 +1,6 @@
 import styled, { css } from 'styled-components';
 import { TodoItemProps } from '../interfaces/todo-item-props';
 
-export const TodoForm = styled.form`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  border: none;
-`;
-
 export const TodoListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
@@ -20,19 +13,6 @@ export const TodoList = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: center;
-`;
-
-export const TodoInput = styled.input`
-  background-color: #f3f2f2;
-  border: none;
-  width: 50%;
-  opacity: 0.6;
-  text-align: center;
-  color: #fe7575;
-  :hover {
-    background-color: #f3f2f2;
-    opacity: 1;
-  }
 `;
 
 export const CompleteButton = styled.button`

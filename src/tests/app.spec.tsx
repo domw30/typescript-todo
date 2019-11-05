@@ -1,13 +1,9 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import App from '../components/app';
-import {
-  TodoInput,
-  TodoForm,
-  TodoListItem,
-  DeleteButton,
-  CompleteButton,
-} from '../styles/styles';
+import { TodoListItem, DeleteButton, CompleteButton } from '../styles/styles';
+import TodoInput from '../components/todo-input';
+import TodoForm from '../components/todo-form';
 
 describe('First component test with Enzyme', () => {
   it('renders without crashing', () => {
@@ -33,7 +29,7 @@ describe('App', () => {
   describe('when a user adds a Todo into the todo input', () => {
     it('should update the input value and todos state properties', () => {
       const mockPreventDefault = jest.fn();
-      const wrapper = shallow(<App />);
+      const wrapper = mount(<App />);
       wrapper.find(TodoInput).simulate('change', {
         preventDefault: mockPreventDefault,
         target: { value: 'Test Todo' },
@@ -51,7 +47,7 @@ describe('App', () => {
   describe('when a user deletes a Todo by clicking the DeleteButton', () => {
     it('should update the todos state property by removing the Todo', () => {
       const mockPreventDefault = jest.fn();
-      const wrapper = shallow(<App />);
+      const wrapper = mount(<App />);
       wrapper.find(TodoInput).simulate('change', {
         preventDefault: mockPreventDefault,
         target: { value: 'Test Todo' },
@@ -68,7 +64,7 @@ describe('App', () => {
   describe('when a user toggles a Todo as complete by clicking the CompleteButton', () => {
     it('should update and mark the Todo List Item as complete', () => {
       const mockPreventDefault = jest.fn();
-      const wrapper = shallow(<App />);
+      const wrapper = mount(<App />);
       wrapper.find(TodoInput).simulate('change', {
         preventDefault: mockPreventDefault,
         target: { value: 'Test Todo' },
