@@ -19,7 +19,6 @@ function App(): JSX.Element {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     addTodo(inputValue);
-    console.log(inputValue);
     setValue('');
   };
 
@@ -31,7 +30,6 @@ function App(): JSX.Element {
   const addTodo = (text: string): void => {
     const newTodos: Todo[] = [...todos, { text, complete: false }];
     setTodos(newTodos);
-    console.log(newTodos);
   };
 
   const completeTodo = (index: number): void => {
