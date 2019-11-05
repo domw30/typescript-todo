@@ -3,8 +3,6 @@ import { Todo } from '../interfaces/todo';
 import { GlobalStyles } from '../styles/global-styles';
 import { DeleteIcon, CheckIcon } from '../styles/icons';
 import {
-  TodoForm,
-  TodoInput,
   TodoListWrapper,
   TodoListItem,
   CompleteButton,
@@ -12,35 +10,34 @@ import {
   TodoList,
 } from '../styles/styles';
 import Header from './header';
-import CreateButton from './create-button';
+import TodoForm from '../components/todo-form';
 
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
-  const [todos, setTodos] = useState<Todo[]>([]); // useState is expecting an array of interface Todos
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
-    e.preventDefault(); // prevents the form from doing a refresh.
+    e.preventDefault();
     addTodo(inputValue);
-    setValue(''); // Turns value in input to empty string.
+    console.log(inputValue);
+    setValue('');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    e.preventDefault(); // prevents the form from doing a refresh.
+    e.preventDefault();
     setValue(e.target.value);
   };
 
   const addTodo = (text: string): void => {
-    const newTodos: Todo[] = [...todos, { text, complete: false }]; // spread operator brings in previous toods. new array for new todos
+    const newTodos: Todo[] = [...todos, { text, complete: false }];
     setTodos(newTodos);
+    console.log(newTodos);
   };
 
-  // completeTodo takes an argument of index dos array called, newTodos
   const completeTodo = (index: number): void => {
     const newTodos: Todo[] = [...todos];
     newTodos[index].complete = !newTodos[index].complete;
-    // toggle the complete property in the object of our todo by using index to locate it.
     setTodos(newTodos);
-    // set object as our new todo array with the setTodos function.
   };
 
   const removeTodo = (index: number): void => {
@@ -53,16 +50,11 @@ function App(): JSX.Element {
     <Fragment>
       <GlobalStyles />
       <Header />
-      <TodoForm onSubmit={handleSubmit}>
-        <TodoInput
-          type="text"
-          placeholder="Enter Todo"
-          value={inputValue}
-          onChange={handleChange}
-          required={true}
-        />
-        <CreateButton />
-      </TodoForm>
+      <TodoForm
+        onSubmit={handleSubmit}
+        onChange={handleChange}
+        value={inputValue}
+      />
       <TodoListWrapper>
         {todos
           .map((todo: Todo, index: number) => (
