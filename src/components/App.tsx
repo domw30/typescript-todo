@@ -10,7 +10,7 @@ import {
   TodoList,
 } from '../styles/styles';
 import Header from './header';
-import TodoForm from '../components/todo-form';
+import TodoForm from './todo-form';
 
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
