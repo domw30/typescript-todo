@@ -50,7 +50,6 @@ function App(): JSX.Element {
   };
 
   const editTodo = (index: number): void => {
-    addTodo(inputValue);
     setValue('');
   };
 
