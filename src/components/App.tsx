@@ -9,6 +9,7 @@ import {
   DeleteButton,
   TodoList,
   EditButton,
+  EditInput,
 } from '../styles/styles';
 import Header from './header';
 import TodoForm from './todo-form';
@@ -49,9 +50,8 @@ function App(): JSX.Element {
   };
 
   const editTodo = (index: number): void => {
-    const newTodos: Todo[] = [...todos];
-    newTodos[index].edited = !newTodos[index].edited;
-    setTodos(newTodos);
+    addTodo(inputValue);
+    setValue('');
   };
 
   return (
@@ -88,9 +88,10 @@ function App(): JSX.Element {
               >
                 <DeleteIcon />
               </DeleteButton>
-              <EditButton type="button" onClick={(): void => editTodo(index)}>
+              <EditButton type="submit" onClick={(): void => editTodo(index)}>
                 <EditIcon />
               </EditButton>
+              <EditInput placeholder="Edit Todo" />
             </TodoList>
           ))
           .reverse()}
