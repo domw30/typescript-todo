@@ -18,7 +18,7 @@ export const TodoList = styled.li`
 export const CompleteButton = styled.button`
   background-color: #4c4c4c;
   cursor: pointer;
-  padding: 0.2rem;
+  padding: 0.5rem;
   border: none;
   border-radius: 10%;
   :hover {
@@ -28,6 +28,18 @@ export const CompleteButton = styled.button`
 `;
 
 export const DeleteButton = styled.button`
+  background-color: #4c4c4c;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 10%;
+  :hover {
+    background-color: #f3f2f2;
+    opacity: 0.4;
+  }
+`;
+
+export const EditButton = styled.button`
   background-color: #4c4c4c;
   cursor: pointer;
   padding: 0.5rem;
