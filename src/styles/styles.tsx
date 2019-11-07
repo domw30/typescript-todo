@@ -18,7 +18,7 @@ export const TodoList = styled.li`
 export const CompleteButton = styled.button`
   background-color: #4c4c4c;
   cursor: pointer;
-  padding: 0.2rem;
+  padding: 0.5rem;
   border: none;
   border-radius: 10%;
   :hover {
@@ -37,6 +37,31 @@ export const DeleteButton = styled.button`
     background-color: #f3f2f2;
     opacity: 0.4;
   }
+`;
+
+export const EditButton = styled.button`
+  background-color: #4c4c4c;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 10%;
+  :hover {
+    background-color: #f3f2f2;
+    opacity: 0.4;
+  }
+`;
+
+export const EditInput = styled.input`
+  margin: 0.5rem;
+  border: solid;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  color: #f3f2f2;
+  background-color: #4c4c4c;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  text-align: center;
 `;
 
 // style component based on the value of property

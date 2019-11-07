@@ -1,13 +1,14 @@
 import React, { Fragment, useState } from 'react';
 import { Todo } from '../interfaces/todo';
 import { GlobalStyles } from '../styles/global-styles';
-import { DeleteIcon, CheckIcon } from '../styles/icons';
+import { DeleteIcon, CheckIcon, EditIcon } from '../styles/icons';
 import {
   TodoListWrapper,
   TodoListItem,
   CompleteButton,
   DeleteButton,
   TodoList,
+  EditButton,
 } from '../styles/styles';
 import Header from './header';
 import TodoForm from './todo-form';
@@ -28,7 +29,10 @@ function App(): JSX.Element {
   };
 
   const addTodo = (text: string): void => {
-    const newTodos: Todo[] = [...todos, { text, complete: false }];
+    const newTodos: Todo[] = [
+      ...todos,
+      { text, complete: false, edited: false },
+    ];
     setTodos(newTodos);
   };
 
@@ -44,6 +48,13 @@ function App(): JSX.Element {
     setTodos(newTodos);
   };
 
+  const editTodo = (index: number): void => {
+    const newTodos: Todo[] = [...todos];
+    newTodos[index].edited = !newTodos[index].edited;
+    setTodos(newTodos);
+    console.log(todos);
+  };
+
   return (
     <Fragment>
       <GlobalStyles />
@@ -57,7 +68,11 @@ function App(): JSX.Element {
         {todos
           .map((todo: Todo, index: number) => (
             <TodoList key={index}>
-              <TodoListItem data-type="todo-item" complete={todo.complete}>
+              <TodoListItem
+                data-type="todo-item"
+                complete={todo.complete}
+                edited={todo.edited}
+              >
                 {todo.text}
               </TodoListItem>
               <CompleteButton
@@ -74,6 +89,13 @@ function App(): JSX.Element {
               >
                 <DeleteIcon />
               </DeleteButton>
+              <EditButton
+                type="button"
+                data-type="edit-button"
+                onClick={(): void => editTodo(index)}
+              >
+                <EditIcon />
+              </EditButton>
             </TodoList>
           ))
           .reverse()}
