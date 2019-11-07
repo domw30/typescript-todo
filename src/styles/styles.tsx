@@ -51,19 +51,6 @@ export const EditButton = styled.button`
   }
 `;
 
-export const EditInput = styled.input`
-  margin: 0.5rem;
-  border: solid;
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  color: #f3f2f2;
-  background-color: #4c4c4c;
-  font-family: 'Fredoka One', cursive;
-  font-size: 1.3rem;
-  text-align: center;
-`;
-
 // style component based on the value of property
 export const TodoListItem = styled.div<TodoItemProps>`
   ${props =>
