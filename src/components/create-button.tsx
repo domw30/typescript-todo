@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddIcon } from '../styles/icons';
+import { AddIcon } from 'styles/icons';
 import styled, { keyframes } from 'styled-components';
 
 const Rotate = keyframes`
