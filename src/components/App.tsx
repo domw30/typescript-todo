@@ -105,8 +105,7 @@ function App(): JSX.Element {
               <button>Cancel</button>
             </TodoList>
           ))
-          .reverse()}{' '}
-        }
+          .reverse()}
       </TodoListWrapper>
     </Fragment>
   );
