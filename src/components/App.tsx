@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useRef } from 'react';
 import { Todo } from '../interfaces/todo';
 import { GlobalStyles } from '../styles/global-styles';
 import { DeleteIcon, CheckIcon, EditIcon } from '../styles/icons';
@@ -16,6 +16,8 @@ import TodoForm from './todo-form';
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
   const [todos, setTodos] = useState<Todo[]>([]);
+
+  const inputFocus = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -49,12 +51,14 @@ function App(): JSX.Element {
   };
 
   const editTodo = (index: number): void => {
-    const newTodos: Todo[] = [...todos];
+    const newTodos = [...todos];
     newTodos[index].edited = !newTodos[index].edited;
-    setTodos(newTodos);
+    if (true === newTodos[index].edited && inputFocus.current) {
+      inputFocus.current.focus();
+    }
     console.log(todos);
+    setTodos(newTodos);
   };
-
   return (
     <Fragment>
       <GlobalStyles />
@@ -96,9 +100,13 @@ function App(): JSX.Element {
               >
                 <EditIcon />
               </EditButton>
+              <input ref={inputFocus} type="text" onChange={handleChange} />
+              <button>Save</button>
+              <button>Cancel</button>
             </TodoList>
           ))
-          .reverse()}
+          .reverse()}{' '}
+        }
       </TodoListWrapper>
     </Fragment>
   );
