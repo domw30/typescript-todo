@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHeading from './page-heading';
+import PageHeading from 'components/page-heading';
 
 function Header(): JSX.Element {
   return (
