@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { TodoItemProps } from 'interfaces/todo-item-props';
+import { Todo } from 'interfaces/todo';
 
 export const TodoListWrapper = styled.ul`
   display: flex;
@@ -51,8 +51,22 @@ export const EditButton = styled.button`
   }
 `;
 
+export const EditInput = styled.input`
+  margin: 0.5rem;
+  border: solid;
+  border-color: #f8fe46;
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  background-color: #4c4c4c;
+  color: #f3f2f2;
+`;
+
 // style component based on the value of property
-export const TodoListItem = styled.div<TodoItemProps>`
+export const TodoListItem = styled.div<Todo>`
   ${props =>
     props.complete &&
     css`
