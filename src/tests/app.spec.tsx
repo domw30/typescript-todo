@@ -1,9 +1,9 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import App from '../components/app';
-import { TodoListItem, DeleteButton, CompleteButton } from '../styles/styles';
-import TodoInput from '../components/todo-input';
-import TodoForm from '../components/todo-form';
+import { mount } from 'enzyme';
+import App from 'components/app';
+import { TodoListItem, DeleteButton, CompleteButton } from 'styles/styles';
+import TodoInput from 'components/todo-input';
+import TodoForm from 'components/todo-form';
 
 describe('First component test with Enzyme', () => {
   it('renders without crashing', () => {

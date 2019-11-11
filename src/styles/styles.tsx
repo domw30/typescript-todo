@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { TodoItemProps } from '../interfaces/todo-item-props';
+import { TodoItemProps } from 'interfaces/todo-item-props';
 
 export const TodoListWrapper = styled.ul`
   display: flex;
