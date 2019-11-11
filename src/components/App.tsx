@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useRef } from 'react';
-import { Todo } from '../interfaces/todo';
-import { GlobalStyles } from '../styles/global-styles';
-import { DeleteIcon, CheckIcon, EditIcon } from '../styles/icons';
+import { Todo } from 'interfaces/todo';
+import { GlobalStyles } from 'styles/global-styles';
+import { DeleteIcon, CheckIcon, EditIcon } from 'styles/icons';
 import {
   TodoListWrapper,
   TodoListItem,
@@ -9,9 +9,9 @@ import {
   DeleteButton,
   TodoList,
   EditButton,
-} from '../styles/styles';
-import Header from './header';
-import TodoForm from './todo-form';
+} from 'styles/styles';
+import Header from 'components/header';
+import TodoForm from 'components/todo-form';
 
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
