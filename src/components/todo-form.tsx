@@ -1,7 +1,7 @@
-import CreateButton from './create-button';
+import CreateButton from 'components/create-button';
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import TodoInput from '../components/todo-input';
+import TodoInput from 'components/todo-input';
 
 export const Form = styled.form`
   display: flex;
