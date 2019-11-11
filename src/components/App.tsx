@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Todo } from 'interfaces/todo';
 import { GlobalStyles } from 'styles/global-styles';
 import { DeleteIcon, CheckIcon, EditIcon } from 'styles/icons';
@@ -9,6 +9,7 @@ import {
   DeleteButton,
   TodoList,
   EditButton,
+  EditInput,
 } from 'styles/styles';
 import Header from 'components/header';
 import TodoForm from 'components/todo-form';
@@ -16,8 +17,6 @@ import TodoForm from 'components/todo-form';
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
   const [todos, setTodos] = useState<Todo[]>([]);
-
-  const inputFocus = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
@@ -51,14 +50,12 @@ function App(): JSX.Element {
   };
 
   const editTodo = (index: number): void => {
-    const newTodos = [...todos];
+    const newTodos: Todo[] = [...todos];
     newTodos[index].edited = !newTodos[index].edited;
-    if (true === newTodos[index].edited && inputFocus.current) {
-      inputFocus.current.focus();
-    }
     console.log(todos);
     setTodos(newTodos);
   };
+
   return (
     <Fragment>
       <GlobalStyles />
@@ -72,13 +69,18 @@ function App(): JSX.Element {
         {todos
           .map((todo: Todo, index: number) => (
             <TodoList key={index}>
-              <TodoListItem
-                data-type="todo-item"
-                complete={todo.complete}
-                edited={todo.edited}
-              >
-                {todo.text}
-              </TodoListItem>
+              {todo.edited ? (
+                <EditInput type="text" />
+              ) : (
+                <TodoListItem
+                  data-type="todo-item"
+                  text={todo.text}
+                  complete={todo.complete}
+                  edited={todo.edited}
+                >
+                  {todo.text}
+                </TodoListItem>
+              )}
               <CompleteButton
                 type="button"
                 data-type="check-button"
@@ -100,9 +102,6 @@ function App(): JSX.Element {
               >
                 <EditIcon />
               </EditButton>
-              <input ref={inputFocus} type="text" onChange={handleChange} />
-              <button>Save</button>
-              <button>Cancel</button>
             </TodoList>
           ))
           .reverse()}
