@@ -56,13 +56,20 @@ export const EditInput = styled.input`
   border: solid;
   border-color: #f8fe46;
   display: flex;
-  width: 30%;
-  flex-direction: column;
+  width: auto;
   justify-content: center;
   font-family: 'Fredoka One', cursive;
   font-size: 1.3rem;
   background-color: #4c4c4c;
   color: #f3f2f2;
+  text-align: center;
+`;
+
+export const EditForm = styled.form`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: none;
 `;
 
 // style component based on the value of property
