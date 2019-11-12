@@ -54,7 +54,7 @@ export const EditButton = styled.button`
 export const EditInput = styled.input`
   margin: 0.5rem;
   border: solid;
-  border-color: #f8fe46;
+  border-color: #f3f2f2;
   display: flex;
   width: auto;
   justify-content: center;

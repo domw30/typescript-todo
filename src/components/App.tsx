@@ -73,7 +73,11 @@ function App(): JSX.Element {
             <TodoList key={index}>
               {todo.edited ? (
                 <EditForm>
-                  <EditInput type="text" placeholder="Edit Todo" />
+                  <EditInput
+                    required={true}
+                    type="text"
+                    placeholder="Edit Todo"
+                  />
                   <CreateButton />
                 </EditForm>
               ) : (
