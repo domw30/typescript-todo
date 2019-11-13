@@ -9,12 +9,10 @@ import {
   DeleteButton,
   TodoList,
   EditButton,
-  EditInput,
-  EditForm,
 } from 'styles/styles';
 import Header from 'components/header';
 import TodoForm from 'components/todo-form';
-import CreateButton from './create-button';
+import EditForm from 'components/edit-form';
 
 function App(): JSX.Element {
   const [inputValue, setValue] = useState<string>('');
@@ -58,6 +56,14 @@ function App(): JSX.Element {
     setTodos(newTodos);
   };
 
+  const updateTodo = (index: number) => (text: string) => {
+    const newTodos: Todo[] = [...todos];
+    newTodos[index].text = text;
+    newTodos[index].edited = false;
+    setTodos(newTodos);
+    console.log(text, index);
+  };
+
   return (
     <Fragment>
       <GlobalStyles />
@@ -72,15 +78,7 @@ function App(): JSX.Element {
           .map((todo: Todo, index: number) => (
             <TodoList key={index}>
               {todo.edited ? (
-                <EditForm data-type="edit-form">
-                  <EditInput
-                    data-type="edit-input"
-                    required={true}
-                    type="text"
-                    placeholder="Edit Todo"
-                  />
-                  <CreateButton data-type="add-button" />
-                </EditForm>
+                <EditForm todo={todo} updateTodo={updateTodo(index)} />
               ) : (
                 <TodoListItem
                   data-type="todo-item"

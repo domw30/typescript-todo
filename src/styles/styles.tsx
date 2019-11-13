@@ -65,7 +65,7 @@ export const EditInput = styled.input`
   text-align: center;
 `;
 
-export const EditForm = styled.form`
+export const StyledEditForm = styled.form`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -82,7 +82,7 @@ export const TodoListItem = styled.div<Todo>`
       opacity: 0.6;
     `}
   margin: .5rem;
-  border: solid;
+  border: none;
   width: 30%;
   display: flex;
   justify-content: center;
