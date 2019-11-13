@@ -72,8 +72,9 @@ function App(): JSX.Element {
           .map((todo: Todo, index: number) => (
             <TodoList key={index}>
               {todo.edited ? (
-                <EditForm>
+                <EditForm data-type="edit-form">
                   <EditInput
+                    data-type="edit-input"
                     required={true}
                     type="text"
                     placeholder="Edit Todo"
