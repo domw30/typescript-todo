@@ -146,5 +146,21 @@ describe('Todo List App', () => {
         .contains('Pick up dry cleaning')
         .should('not.be.visible');
     });
+
+    it('should display the edit form by clicking edit icon', () => {
+      cy.get('input')
+        .type('Pick up dry cleaning')
+        .get('[data-type="add-button"]')
+        .click()
+        .get('ul')
+        .get('[data-type="edit-button"]')
+        .click()
+        .get('ul')
+        .get('[data-type="edit-form"]')
+        .get(
+          '[data-type="edit-input"], [data-type="edit-button"], [data-type="add-button"]'
+        )
+        .should('be.visible');
+    });
   });
 });
