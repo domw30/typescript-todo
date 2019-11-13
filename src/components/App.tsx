@@ -79,7 +79,7 @@ function App(): JSX.Element {
                     type="text"
                     placeholder="Edit Todo"
                   />
-                  <CreateButton />
+                  <CreateButton data-type="add-button" />
                 </EditForm>
               ) : (
                 <TodoListItem

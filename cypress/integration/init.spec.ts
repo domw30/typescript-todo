@@ -157,9 +157,6 @@ describe('Todo List App', () => {
         .click()
         .get('ul')
         .get('[data-type="edit-form"]')
-        .get(
-          '[data-type="edit-input"], [data-type="edit-button"], [data-type="add-button"]'
-        )
         .should('be.visible');
     });
   });
