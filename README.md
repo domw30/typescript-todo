@@ -22,7 +22,7 @@ This opens http://localhost:3000 in the browser which records the tests.
 ### Integration / Unit Testing
 
 Run 'yarn test'.
-
+ 
 In the terminal you will see a display of tests.
 
 ### User Stories
@@ -49,4 +49,4 @@ So that I can finalise a task that I have completed and forget,
 I'd like to be able to delete a todo.
 ```
 
-(NB: There is currently no functionality for Todos to be permanently stored. If the user refreshes the web page, the Todos will be lost)
+(NB: There is currently no functionality for Todos to be permanently stored. If the user refreshes the web page, the Todos will be lost.)
